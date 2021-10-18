@@ -5,7 +5,6 @@ set -eoux pipefail
 cd helm-charts
 
 trash "*.tgz"
-
 trash elasticsearch
 trash kibana
 
