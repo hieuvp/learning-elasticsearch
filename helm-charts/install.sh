@@ -14,13 +14,15 @@ kubectl create secret generic elastic-credentials \
   --from-literal=password=Passw0rd \
   --namespace=elastic-stack
 
-helm install elasticsearch ./helm-charts/elasticsearch \
-  --namespace=elastic-stack \
-  --values=helm-charts/values/elasticsearch.yaml
+cd helm-charts/
 
-helm install kibana ./helm-charts/kibana \
+helm install elasticsearch ./elasticsearch \
   --namespace=elastic-stack \
-  --values=helm-charts/values/kibana.yaml
+  --values=values/elasticsearch.yaml
+
+helm install kibana ./kibana \
+  --namespace=elastic-stack \
+  --values=values/kibana.yaml
 
 set +x
 
